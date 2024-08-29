@@ -17,9 +17,9 @@ exports.createQuize = async(req, res) =>{
         }
 
         //check if time is available in quize type
-        if(quizeType == 'QnA' && !timePerQuestion){
-            return res.status(400).json({error: "Timer is required"})
-        }
+        // if(quizeType == 'QnA' && !timePerQuestion){
+        //     return res.status(400).json({error: "Timer is required"})
+        // }
 
         //generating _id
         const _id = new mongoose.Types.ObjectId();

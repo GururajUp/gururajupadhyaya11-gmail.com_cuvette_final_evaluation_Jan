@@ -66,10 +66,10 @@ const GetAllQuestions = ({ setUrl, changePopup, quizeData, type }) => {
   const validateQuizeData = () => {
     let validate = false;
 
-    if (!quizeData.timePerQuestion && quizeData.quizeType == 'QnA') {
-      toast.error("Please select the timer")
-      return validate;
-    }
+    // if (!quizeData.timePerQuestion && quizeData.quizeType == 'QnA') {
+    //   toast.error("Please select the timer")
+    //   return validate;
+    // }
     for (let i = 0; i < questions.length; i++) {
       if (!questions[i].ques) {
         toast.error(`Enter the Question no. ${i + 1}`)
