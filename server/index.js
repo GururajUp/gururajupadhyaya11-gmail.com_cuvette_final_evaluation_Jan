@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
 const cors = require("cors");
-// const path = require("path")
+const path = require("path")
 const userRoutes = require('./routes/userRoutes');
 const quizeRoutes = require('./routes/quizeRoutes');
 const errorHandler = require('./utils/errorHandler')
@@ -23,6 +23,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Connect to MongoDB
