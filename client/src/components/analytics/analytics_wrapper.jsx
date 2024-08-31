@@ -12,6 +12,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import DeleteConfirmationPopup from './delete_confirmation_popup';
 import CreateQuize from '../../screens/create_quize';
 
+
 //API :: http://localhost:9001/health
 const AnalyticsWrapper = () => {
 
@@ -22,11 +23,11 @@ const AnalyticsWrapper = () => {
     isOpen: false,
     id: ''
   })
-
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const fetchQuizes = async () => {
     setLoading(true)
     try {
-      const { data } = await axios.get(`http://localhost:3000/quiz/user-quizes`, {
+      const { data } = await axios.get(`${backendUrl}/quiz/user-quizes`, {
         headers: {
           authorization: localStorage.getItem('authToken')
         }

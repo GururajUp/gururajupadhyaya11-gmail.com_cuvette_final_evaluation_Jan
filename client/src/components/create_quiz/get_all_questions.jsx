@@ -98,10 +98,10 @@ const GetAllQuestions = ({ setUrl, changePopup, quizeData, type }) => {
 
     return true;
   }
-
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const submitCreateQuize = async () => {
     try {
-      const { data } = await axios.post('http://localhost:3000/quiz/create-quiz', quizeData, {
+      const { data } = await axios.post(`${backendUrl}/quiz/create-quiz`, quizeData, {
         headers: {
           Authorization: localStorage.getItem('authToken')
         }

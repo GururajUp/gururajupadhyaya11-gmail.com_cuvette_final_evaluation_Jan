@@ -17,10 +17,11 @@ const DashboardWrapper = () => {
   const [allQuizes, setAllQuizes] = useState([]);
 
   //function to fetch quizes from api set into respective states
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const fetchQuizes = async () => {
     setLoading(true)
     try {
-      const { data } = await axios.get(`http://localhost:3000/quiz/get-quizes`, {
+      const { data } = await axios.get(`${backendUrl}/quiz/get-quizes`, {
         headers: {
           authorization: localStorage.getItem('authToken')
         }

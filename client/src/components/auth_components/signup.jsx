@@ -78,13 +78,14 @@ const Signup = ({ authType, changeType }) => {
   }
 
   //function to submit the signup form if there is no any error
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const onSubmitFun = async (e) => {
     e.preventDefault();
 
     setLoading(true)
     if (validateAuthData()) {
       try {
-        const { data } = await axios.post('http://localhost:3000/user/signup', authData);
+        const { data } = await axios.post(`${backendUrl}/user/signup`, authData);
         toast.success(data.message);
 
       } catch (error) {

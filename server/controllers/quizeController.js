@@ -1,5 +1,6 @@
 const Quize = require('../models/Quiz');
 const mongoose = require('mongoose');
+const FRONTEND_URL = process.env.FRONTEND_URL;
 
 //controller function to create quize
 exports.createQuize = async(req, res) =>{
@@ -27,7 +28,7 @@ exports.createQuize = async(req, res) =>{
         //generating URL
 
        // const URL = `http://localhost:5173/anonymous/${_id}`;
-        const URL = `http://localhost:5173/anonymous/${_id}`;
+        const URL = `${FRONTEND_URL}/anonymous/${_id}`;
         //creating new quize if all data is correct
         const quize = await Quize.create({
             _id,

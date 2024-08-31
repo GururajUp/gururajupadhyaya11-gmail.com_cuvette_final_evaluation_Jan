@@ -11,9 +11,10 @@ const EditQuize = () => {
   const [loading, setLoading] = useState(true);
   const [quizeData, setQuizeData] = useState({})
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const fetchQuizes = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:3000/quiz/${id}`, {
+      const { data } = await axios.get(`${backendUrl}/quiz/${id}`, {
         headers: {
           authorization: localStorage.getItem('authToken')
         }

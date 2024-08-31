@@ -9,13 +9,13 @@ import { useNavigate } from 'react-router-dom';
 
 const DeleteConfirmationPopup = ({ popupInfo, setOpen, setLoading, setRefresh }) => {
   const navigate = useNavigate()
-
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const deleteQuize = async () => {
     navigate('/analytics')
     setOpen({ isOpen: false, id: '' })
     setLoading(true)
     try {
-      const { data } = await axios.delete(`http://localhost:3000/quiz/${popupInfo?.id}`, {
+      const { data } = await axios.delete(`${backendUrl}/quiz/${popupInfo?.id}`, {
         headers: {
           authorization: localStorage.getItem('authToken')
         }

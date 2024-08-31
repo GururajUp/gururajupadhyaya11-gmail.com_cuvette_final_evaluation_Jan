@@ -12,10 +12,11 @@ const QWiseAnalysis = () => {
   const [loading, setLoading] = useState(false);
   const [quize, setQuize] = useState({});
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const fetchQuizes = async () => {
     setLoading(true)
     try {
-      const { data } = await axios.get(`http://localhost:3000/quiz/${id}`, {
+      const { data } = await axios.get(`${backendUrl}/quiz/${id}`, {
         headers: {
           authorization: localStorage.getItem('authToken')
         }

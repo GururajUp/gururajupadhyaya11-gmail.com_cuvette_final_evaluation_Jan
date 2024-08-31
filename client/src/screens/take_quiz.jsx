@@ -21,10 +21,11 @@ const TakeQuize = () => {
 
   const { id } = useParams()
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const fetchQ = async () => {
     setLoading(true)
     try {
-      const { data } = await axios.get(`http://localhost:3000/quiz/take-quiz/${id}`)
+      const { data } = await axios.get(`${backendUrl}/quiz/take-quiz/${id}`)
       console.log(data)
       setCurrectOptions(Array(data.questions.length).fill(null));
       setQuestion(data.questions);
@@ -46,7 +47,7 @@ const TakeQuize = () => {
   const submitHandler = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.post('http://localhost:3000/quiz/save-quiz-result', {
+      const { data } = await axios.post(`${backendUrl}/quiz/save-quiz-result`, {
         quizeId: id,
         choosedOptions: correctOptions,
       })
